@@ -29,6 +29,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		world = new World();
 		
 		enemyes.add(new Enemy(32,32));
+		enemyes.add(new Enemy(64,64));
 	}
 	
 	public void tick() {
