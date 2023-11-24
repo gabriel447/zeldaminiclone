@@ -25,12 +25,25 @@ public class Enemy extends Rectangle{
 	}
 	
 	
+	public void followPlayer() {
+		Player p = Game.player;
+		if(x < p.x && World.isFree(x+spd, y)) {
+			x+=spd;
+		}else if(x > p.x && World.isFree(x-spd, y)) {
+			x-=spd;
+		}
+		
+		if(y < p.y && World.isFree(x, y+spd)) {
+			y+=spd;
+		}else if(y > p.y && World.isFree(x, y-spd)) {
+			y-=spd;
+		}
+	}
+	
 	public void tick() {
 		boolean moved = true;
 		
-		if(right == 1 && World.isFree(x + 1, y)) {
-			x++;
-		}
+		followPlayer();
 		
 		
 		if(moved) {
